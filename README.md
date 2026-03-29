@@ -1,7 +1,5 @@
 # Mac Development Ansible Playbook
 
-[![CI][badge-gh-actions]][link-gh-actions]
-
 This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in macOS are slightly difficult to automate, so I still have a few manual installation steps, but at least it's all documented here.
 
 A fork of [Jeff Geerling's Mac Dev Playbook](https://raw.githubusercontent.com/geerlingguy/mac-dev-playbook), configured for my preferences.
@@ -47,97 +45,15 @@ You can filter which part of the provisioning process to run by specifying a set
 
 ## Overriding Defaults
 
-Not everyone's development environment and preferred software configuration is the same.
-
-You can override any of the defaults configured in `default.config.yml` by creating a `config.yml` file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
-
-```yaml
-homebrew_installed_packages:
-  - name: git
-    state: latest
-  - go
-
-mas_installed_apps:
-  - { id: 443987910, name: "1Password" }
-  - { id: 498486288, name: "Quick Resizer" }
-  - { id: 557168941, name: "Tweetbot" }
-  - { id: 497799835, name: "Xcode" }
-
-composer_packages:
-  - name: hirak/prestissimo
-  - name: drush/drush
-    version: "^8.1"
-
-gem_packages:
-  - name: bundler
-    state: latest
-
-npm_packages:
-  - name: webpack
-
-pip_packages:
-  - name: mkdocs
-
-configure_dock: true
-dockitems_remove:
-  - Launchpad
-  - TV
-dockitems_persist:
-  - name: "Sublime Text"
-    path: "/Applications/Sublime Text.app/"
-    pos: 5
-```
-
-Any variable can be overridden in `config.yml`; see the supporting roles' documentation for a complete list of available variables.
+This fork loads all my preferences in the `default.config.yml`. I only use `config.yml` (gitignored) for bringing in secrets, e.g. Mac App Store usernames.
 
 ## Included Applications / Configuration (Default)
 
-Applications (installed with Homebrew Cask):
-
-- [ChromeDriver](https://sites.google.com/chromium.org/driver/)
-- [Docker](https://www.docker.com/)
-- [Dropbox](https://www.dropbox.com/)
-- [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-- [Google Chrome](https://www.google.com/chrome/)
-- [Handbrake](https://handbrake.fr/)
-- [Homebrew](http://brew.sh/)
-- [LICEcap](http://www.cockos.com/licecap/)
-- [nvALT](http://brettterpstra.com/projects/nvalt/)
-- [Sequel Ace](https://sequel-ace.com) (MySQL client)
-- [Slack](https://slack.com/)
-- [Sublime Text](https://www.sublimetext.com/)
-- [Transmit](https://panic.com/transmit/) (S/FTP client)
-
-Packages (installed with Homebrew):
-
-- autoconf
-- bash-completion
-- doxygen
-- gettext
-- gifsicle
-- git (latest)
-- gh
-- go
-- gpg
-- httpie
-- iperf
-- libevent
-- sqlite
-- nmap
-- node
-- nvm
-- php
-- ssh-copy-id
-- readline
-- openssl
-- pv
-- wget
-- wrk
-- zsh-history-substring-search
+This brings in a number of applications and tools via Homebrew, Homebrew Cask and the Mac App Store. See `default.config.yml` for a complete listing.
 
 The playbook also ensures Homebrew `git` is preferred over macOS/Xcode's `/usr/bin/git` shim (on Apple Silicon, it links `/usr/local/bin/git` to Homebrew's `git` binary).
 
-My [dotfiles](https://github.com/geerlingguy/dotfiles) are also installed into the current user's home directory, including the `.osx` dotfile for configuring many aspects of macOS for better performance and ease of use. You can disable dotfiles management by setting `configure_dotfiles: no` in your configuration.
+My [dotfiles](https://github.com/evanjd/dotfiles) are also installed into the current user's home directory.
 
 Finally, there are a few other preferences and settings added on for various apps and services.
 
@@ -159,10 +75,3 @@ You can also run macOS itself inside a VM, for at least some of the required tes
 ## Ansible for DevOps
 
 Check out [Ansible for DevOps](https://www.ansiblefordevops.com/), which teaches you how to automate almost anything with Ansible.
-
-## Author
-
-This project was created by [Jeff Geerling](https://www.jeffgeerling.com/) (originally inspired by [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks)).
-
-[badge-gh-actions]: https://github.com/geerlingguy/mac-dev-playbook/actions/workflows/ci.yml/badge.svg
-[link-gh-actions]: https://github.com/geerlingguy/mac-dev-playbook/actions/workflows/ci.yml

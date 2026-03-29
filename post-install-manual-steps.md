@@ -1,7 +1,5 @@
 # Post-Install Manual Steps
 
-Use this checklist after running the playbook.
-
 ## 1) Sign in to the Mac App Store
 
 `mas` installs require your Apple ID session.
@@ -36,19 +34,17 @@ To enable it manually:
 3. Enable `Terminal`.
 4. Quit and reopen those apps.
 
-## 4) Set Ghostty as Your Effective Default Terminal (Manual)
+## 4) Set Ghostty as the Default Terminal
 
-There is currently no single macOS-wide "default terminal app" switch for all terminal entry points. Use these practical equivalents:
-
-1. In Finder, right-click a folder and use `Services` -> `New Ghostty Window Here` (or `New Ghostty Tab Here`).
-2. Optional: add keyboard shortcuts for those services in `System Settings` -> `Keyboard` -> `Keyboard Shortcuts` -> `Services`.
-3. For file types that currently open another terminal app, use Finder `Get Info` -> `Open with` -> `Ghostty`, then `Change All`.
+1. Open `Ghostty`
+2. From the menu bar, select `Ghostty` and then `Make Ghostty the default terminal`
 
 ## 5) AutoPiP Permissions Check
 
 AutoPiP `v2.0.0` is currently not notarized, so the first install needs manual macOS security approval.
 
 Reference:
+
 - https://github.com/vordenken/AutoPiP/releases/tag/v2.0.0
 
 Manual first-install flow (from the release notes):
@@ -72,7 +68,5 @@ Suggested first-run list:
 - `ChatGPT`
 - `Claude`
 - `Bambu Studio`
-- `Moonlight`
 - `Fork`
-- `DaVinci Resolve`
 - `Parcel - Delivery Tracking`
