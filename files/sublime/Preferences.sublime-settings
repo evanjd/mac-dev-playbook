@@ -302,7 +302,7 @@
     "*.zip"
   ],
   "close_windows_when_empty": true,
-  "color_scheme": "Packages/Theme - Cobalt2/cobalt2.tmTheme",
+  "color_scheme": "One Dark.sublime-color-scheme",
   "create_window_at_startup": false,
   "detect_indentation": true,
   "draw_minimap_border": false,
@@ -406,7 +406,7 @@
   "smart_indent": true,
   "spell_check": false,
   "tab_size": 2,
-  "theme": "Cobalt2.sublime-theme",
+  "theme": "One.sublime-theme",
   "translate_tabs_to_spaces": true,
   "trim_automatic_white_space": false,
   "trim_trailing_white_space_on_save": false,

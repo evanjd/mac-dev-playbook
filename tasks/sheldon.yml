@@ -1,0 +1,4 @@
+---
+- name: Verify sheldon is installed and working.
+  command: sheldon --version
+  changed_when: false

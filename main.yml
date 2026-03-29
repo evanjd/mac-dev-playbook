@@ -27,6 +27,9 @@
       tags: ['dock']
 
   tasks:
+    - import_tasks: tasks/git.yml
+      tags: ['homebrew', 'git']
+
     - import_tasks: tasks/sudoers.yml
       when: configure_sudoers
       tags: ['sudoers']
@@ -41,6 +44,9 @@
 
     - import_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
+
+    - import_tasks: tasks/sheldon.yml
+      tags: ['sheldon']
 
     - import_tasks: tasks/sublime-text.yml
       when: configure_sublime

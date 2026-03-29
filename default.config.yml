@@ -4,16 +4,23 @@ configure_terminal: true
 configure_osx: true
 
 # Set to 'true' to configure the Dock via dockutil.
-configure_dock: false
-dockitems_remove: []
-# - Launchpad
-# - TV
-# - Podcasts
-# - 'App Store'
-dockitems_persist: []
-# - name: "Sublime Text"
-#   path: "/Applications/Sublime Text.app/"
-#   pos: 5
+configure_dock: true
+dockitems_remove:
+  - TV
+  - Podcasts
+dockitems_persist:
+  - name: "Chrome"
+    path: "/Applications/Google Chrome.app/"
+    pos: 4
+  - name: "Ghostty"
+    path: "/Applications/Ghostty.app/"
+    pos: 5
+  - name: "Visual Studio Code"
+    path: "/Applications/Visual Studio Code.app/"
+    pos: 6
+  - name: "Fork"
+    path: "/Applications/Fork.app/"
+    pos: 7
 
 configure_sudoers: false
 sudoers_custom_config: ""
@@ -22,63 +29,85 @@ sudoers_custom_config: ""
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
+dotfiles_repo: https://github.com/evanjd/dotfiles.git
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/Developer/dotfiles
 dotfiles_repo_version: master # Replace with your default branch
 dotfiles_files:
   - .zshrc
   - .gitignore
-  - .inputrc
-  - .osx
-  - .vimrc
+  - .config/sheldon/plugins.toml
+  - .config/ghostty/config
 
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - autoconf
   - bash-completion
-  - doxygen
+  - deno
+  - fzf
   - gettext
-  - gifsicle
-  - git
+  - name: git
+    state: latest
   - gh
   - go
   - gpg
   - httpie
-  - iperf
-  - libevent
+  - imagemagick
+  - jq
+  - awscli
+  - ffmpeg
   - sqlite
   - nmap
   - node
-  - nvm
-  - php
-  - pngpaste
+  - sheldon
   - ssh-copy-id
   - readline
   - openssl
-  - pv
+  - p7zip
+  - pure
+  - pyenv
+  - rust
+  - starship
+  - thaw # replacement for Ice, which itself is a replacement for Bartender
   - wget
-  - wrk
-  - zsh-history-substring-search
+  - youtube-dl
 
 homebrew_taps: []
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - chromedriver
-  - docker
-  - dropbox
-  - firefox
+  - betterdisplay
+  - bambu-studio
+  - calibre
+  - chatgpt
+  - claude
+  - claude-code
+  - codex
+  - fork
+  - ghostty
   - google-chrome
   - handbrake
-  - licecap
-  - sequel-ace
-  - slack
+  - moonlight
+  - orbstack
+  - stats
+  - steam
   - sublime-text
+  - font-jetbrains-mono
   - transmit
+  - visual-studio-code
 
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
-mas_installed_apps: []
+mas_installed_apps:
+  - { id: 6745342698, name: "uBlock Origin Lite" }
+  - { id: 1573461917, name: "SponsorBlock for Safari" }
+  - { id: 497799835, name: "Xcode" }
+  - { id: 1289583905, name: "Pixelmator Pro" }
+  - { id: 462054704, name: "Microsoft Word" }
+  - { id: 462058435, name: "Microsoft Excel" }
+  - { id: 462062816, name: "Microsoft PowerPoint" }
+  - { id: 409183694, name: "Keynote" }
+  - { id: 571213070, name: "DaVinci Resolve" }
+  - { id: 375589283, name: "Parcel - Delivery Tracking" }
 mas_email: ""
 mas_password: ""
 
@@ -105,22 +134,23 @@ pip_packages: []
 #   version: "0.16.3" # default: N/A
 
 # Set to 'true' to configure Sublime Text.
-configure_sublime: false
+configure_sublime: true
 sublime_base_path: "~/Library/Application Support/Sublime Text"
 sublime_config_path: "Packages/User"
 sublime_package_control:
   - "DocBlockr"
   - "Dockerfile Syntax Highlighting"
-  - "FileDiffs"
   - "GitHub Flavored Markdown Preview"
   - "Jinja2"
   - "Package Control"
   - "Pretty JSON"
   - "SublimeLinter"
   - "SublimeLinter-contrib-yamllint"
-  - "Theme - Cobalt2"
+  - "Theme - One"
   - "TrailingSpaces"
   - "WordingStatus"
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
-post_provision_tasks: []
+post_provision_tasks:
+  - "{{ playbook_dir }}/tasks/autopip.yml"
+  - "{{ playbook_dir }}/tasks/macos-settings.yml"
