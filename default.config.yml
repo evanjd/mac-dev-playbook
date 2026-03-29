@@ -1,7 +1,7 @@
 ---
 configure_dotfiles: true
 configure_terminal: true
-configure_osx: true
+configure_osx: false # handled in macos-settings post-provision task
 
 configure_dock: true
 dockitems_remove:
@@ -105,9 +105,8 @@ mas_installed_apps:
   - { id: 462058435, name: "Microsoft Excel" }
   - { id: 462062816, name: "Microsoft PowerPoint" }
   - { id: 409183694, name: "Keynote" }
-  - { id: 571213070, name: "DaVinci Resolve" }
   - { id: 375589283, name: "Parcel - Delivery Tracking" }
-mas_email: ""
+mas_email: "" # overridden in gitignored config.yml
 mas_password: ""
 
 osx_script: "~/.osx --no-restart"
