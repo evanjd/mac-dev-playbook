@@ -3,7 +3,6 @@ configure_dotfiles: true
 configure_terminal: true
 configure_osx: true
 
-# Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
 dockitems_remove:
   - TV
@@ -32,7 +31,7 @@ sudoers_custom_config: ""
 dotfiles_repo: https://github.com/evanjd/dotfiles.git
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Developer/dotfiles
-dotfiles_repo_version: master # Replace with your default branch
+dotfiles_repo_version: master
 dotfiles_files:
   - .zshrc
   - .gitignore
@@ -114,8 +113,6 @@ mas_password: ""
 osx_script: "~/.osx --no-restart"
 
 # Install packages from other package managers.
-# Note: You are responsible for making sure the required package managers are
-# installed, eg. through homebrew.
 composer_packages: []
 # - name: drush
 #   state: present # present/absent, default: present
@@ -124,7 +121,8 @@ gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A
-npm_packages: []
+npm_packages:
+  - name: skills # https://github.com/vercel-labs/skills
 # - name: webpack
 #   state: present # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
@@ -154,3 +152,4 @@ sublime_package_control:
 post_provision_tasks:
   - "{{ playbook_dir }}/tasks/autopip.yml"
   - "{{ playbook_dir }}/tasks/macos-settings.yml"
+  - "{{ playbook_dir }}/tasks/agent-skills.yml"
