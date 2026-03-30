@@ -1,6 +1,6 @@
 ---
 configure_dotfiles: true
-configure_terminal: true
+configure_terminal: false
 configure_osx: false  # handled in macos-settings post-provision task
 configure_dock: true
 dockitems_remove: [TV, Podcasts]
@@ -77,7 +77,6 @@ homebrew_cask_apps:
   - fork
   - ghostty
   - google-chrome
-  - handbrake
   - moonlight
   - orbstack
   - stats
