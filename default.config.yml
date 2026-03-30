@@ -1,33 +1,28 @@
 ---
 configure_dotfiles: true
 configure_terminal: true
-configure_osx: false # handled in macos-settings post-provision task
-
+configure_osx: false  # handled in macos-settings post-provision task
 configure_dock: true
-dockitems_remove:
-  - TV
-  - Podcasts
+dockitems_remove: [TV, Podcasts]
 dockitems_persist:
-  - name: "Chrome"
-    path: "/Applications/Google Chrome.app/"
+  - name: Chrome
+    path: /Applications/Google Chrome.app/
     pos: 4
-  - name: "Ghostty"
-    path: "/Applications/Ghostty.app/"
+  - name: Ghostty
+    path: /Applications/Ghostty.app/
     pos: 5
-  - name: "Visual Studio Code"
-    path: "/Applications/Visual Studio Code.app/"
+  - name: Visual Studio Code
+    path: /Applications/Visual Studio Code.app/
     pos: 6
-  - name: "Fork"
-    path: "/Applications/Fork.app/"
+  - name: Fork
+    path: /Applications/Fork.app/
     pos: 7
-
 configure_sudoers: false
-sudoers_custom_config: ""
+sudoers_custom_config: ''
 # Example:
 # sudoers_custom_config: |
-#   # Allow users in admin group to use sudo with no password.
+#  # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
-
 dotfiles_repo: https://github.com/evanjd/dotfiles.git
 dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Developer/dotfiles
@@ -37,9 +32,8 @@ dotfiles_files:
   - .gitignore
   - .config/sheldon/plugins.toml
   - .config/ghostty/config
-
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
+  # - ansible  # Installed via Pip.
   - autoconf
   - bash-completion
   - deno
@@ -67,12 +61,10 @@ homebrew_installed_packages:
   - pyenv
   - rust
   - starship
-  - thaw # replacement for Ice, which itself is a replacement for Bartender
+  - thaw  # replacement for Ice, which itself is a replacement for Bartender
   - wget
   - youtube-dl
-
 homebrew_taps: []
-
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - betterdisplay
@@ -94,61 +86,58 @@ homebrew_cask_apps:
   - font-jetbrains-mono
   - transmit
   - visual-studio-code
-
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
 mas_installed_apps:
-  - { id: 6745342698, name: "uBlock Origin Lite" }
-  - { id: 1573461917, name: "SponsorBlock for Safari" }
-  - { id: 497799835, name: "Xcode" }
-  - { id: 1289583905, name: "Pixelmator Pro" }
-  - { id: 462054704, name: "Microsoft Word" }
-  - { id: 462058435, name: "Microsoft Excel" }
-  - { id: 462062816, name: "Microsoft PowerPoint" }
-  - { id: 409183694, name: "Keynote" }
-  - { id: 375589283, name: "Parcel - Delivery Tracking" }
-mas_email: "" # overridden in gitignored config.yml
-mas_password: ""
-
-osx_script: "~/.osx --no-restart"
+  - {id: 6745342698, name: uBlock Origin Lite}
+  - {id: 1573461917, name: SponsorBlock for Safari}
+  - {id: 497799835, name: Xcode}
+  - {id: 1289583905, name: Pixelmator Pro}
+  - {id: 462054704, name: Microsoft Word}
+  - {id: 462058435, name: Microsoft Excel}
+  - {id: 462062816, name: Microsoft PowerPoint}
+  - {id: 409183694, name: Keynote}
+  - {id: 375589283, name: Parcel - Delivery Tracking}
+mas_email: ''  # overridden in gitignored config.yml
+mas_password: ''
+osx_script: ~/.osx --no-restart
 
 # Install packages from other package managers.
 composer_packages: []
 # - name: drush
-#   state: present # present/absent, default: present
+#   state: present  # present/absent, default: present
 #   version: "^8.1" # default: N/A
 gem_packages: []
 # - name: bundler
-#   state: present # present/absent/latest, default: present
+#   state: present  # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A
 npm_packages:
-  - name: skills # https://github.com/vercel-labs/skills
+  - name: skills  # https://github.com/vercel-labs/skills
 # - name: webpack
-#   state: present # present/absent/latest, default: present
+#   state: present  # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
 pip_packages: []
 # - name: mkdocs
-#   state: present # present/absent/latest, default: present
+#   state: present  # present/absent/latest, default: present
 #   version: "0.16.3" # default: N/A
 
 # Set to 'true' to configure Sublime Text.
 configure_sublime: true
-sublime_base_path: "~/Library/Application Support/Sublime Text"
-sublime_config_path: "Packages/User"
+sublime_base_path: ~/Library/Application Support/Sublime Text
+sublime_config_path: Packages/User
 sublime_package_control:
-  - "DocBlockr"
-  - "Dockerfile Syntax Highlighting"
-  - "GitHub Flavored Markdown Preview"
-  - "Jinja2"
-  - "Package Control"
-  - "Pretty JSON"
-  - "SublimeLinter"
-  - "SublimeLinter-contrib-yamllint"
-  - "Theme - One"
-  - "TrailingSpaces"
-  - "WordingStatus"
-
+  - DocBlockr
+  - Dockerfile Syntax Highlighting
+  - GitHub Flavored Markdown Preview
+  - Jinja2
+  - Package Control
+  - Pretty JSON
+  - SublimeLinter
+  - SublimeLinter-contrib-yamllint
+  - Theme - One
+  - TrailingSpaces
+  - WordingStatus
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks:
-  - "{{ playbook_dir }}/tasks/autopip.yml"
-  - "{{ playbook_dir }}/tasks/macos-settings.yml"
-  - "{{ playbook_dir }}/tasks/agent-skills.yml"
+  - '{{ playbook_dir }}/tasks/autopip.yml'
+  - '{{ playbook_dir }}/tasks/macos-settings.yml'
+  - '{{ playbook_dir }}/tasks/agent-skills.yml'

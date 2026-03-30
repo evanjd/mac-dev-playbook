@@ -3,7 +3,6 @@
   ansible.builtin.stat:
     path: /Applications/AutoPiP.app
   register: autopip_app
-
 - name: Install AutoPiP from latest GitHub release DMG.
   when: not autopip_app.stat.exists
   block:
@@ -11,28 +10,26 @@
       ansible.builtin.get_url:
         url: https://github.com/vordenken/AutoPiP/releases/latest/download/AutoPiP.dmg
         dest: /tmp/AutoPiP.dmg
-        mode: "0644"
-
+        mode: '0644'
     - name: Mount AutoPiP DMG.
       ansible.builtin.command:
         cmd: hdiutil attach /tmp/AutoPiP.dmg -nobrowse -quiet
       changed_when: true
-
     - name: Find mounted AutoPiP volume path.
-      ansible.builtin.shell: ls -d /Volumes/AutoPiP* | head -n 1
+      ansible.builtin.shell: set -o pipefail && ls -d /Volumes/AutoPiP* | head -n 1
       register: autopip_volume
       changed_when: false
-
     - name: Copy AutoPiP.app into /Applications.
       become: true
       ansible.builtin.copy:
-        src: "{{ autopip_volume.stdout }}/AutoPiP.app"
+        src: '{{ autopip_volume.stdout }}/AutoPiP.app'
         dest: /Applications/AutoPiP.app
         remote_src: true
         mode: preserve
   always:
     - name: Unmount AutoPiP DMG if mounted.
       ansible.builtin.shell: |
+        set -o pipefail
         if ls -d /Volumes/AutoPiP* >/dev/null 2>&1; then
           hdiutil detach "$(ls -d /Volumes/AutoPiP* | head -n 1)" -quiet
         fi

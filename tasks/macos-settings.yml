@@ -5,76 +5,90 @@
     macos_defaults_settings:
       - name: Disable click wallpaper to show desktop
         read_cmd: defaults read com.apple.WindowManager EnableStandardClickToShowDesktop
-        write_cmd: defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
-        desired_value: "0"
+        write_cmd: defaults write com.apple.WindowManager EnableStandardClickToShowDesktop
+          -bool false
+        desired_value: '0'
       - name: Disable menu action icons
         read_cmd: defaults read -g NSMenuEnableActionImages
         write_cmd: defaults write -g NSMenuEnableActionImages -bool NO
-        desired_value: "0"
+        desired_value: '0'
       - name: Expand save panel by default
         read_cmd: defaults read NSGlobalDomain NSNavPanelExpandedStateForSaveMode
-        write_cmd: defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-        desired_value: "1"
+        write_cmd: defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode
+          -bool true
+        desired_value: '1'
       - name: Expand print panel by default
         read_cmd: defaults read NSGlobalDomain PMPrintingExpandedStateForPrint
-        write_cmd: defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-        desired_value: "1"
+        write_cmd: defaults write NSGlobalDomain PMPrintingExpandedStateForPrint
+          -bool true
+        desired_value: '1'
       - name: Save new documents to disk by default (not iCloud)
         read_cmd: defaults read NSGlobalDomain NSDocumentSaveNewDocumentsToCloud
-        write_cmd: defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-        desired_value: "0"
+        write_cmd: defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud
+          -bool false
+        desired_value: '0'
       - name: Auto-quit printer app when jobs complete
         read_cmd: defaults read com.apple.print.PrintingPrefs "Quit When Finished"
-        write_cmd: defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-        desired_value: "1"
+        write_cmd: defaults write com.apple.print.PrintingPrefs "Quit When Finished"
+          -bool true
+        desired_value: '1'
       - name: Set key repeat rate to fast
         read_cmd: defaults read -g KeyRepeat
         write_cmd: defaults write -g KeyRepeat -int 2
-        desired_value: "2"
+        desired_value: '2'
       - name: Set delay until repeat to short
         read_cmd: defaults read -g InitialKeyRepeat
         write_cmd: defaults write -g InitialKeyRepeat -int 15
-        desired_value: "15"
+        desired_value: '15'
       - name: Enable tap to click (built-in trackpad)
         read_cmd: defaults read com.apple.AppleMultitouchTrackpad Clicking
-        write_cmd: defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-        desired_value: "1"
+        write_cmd: defaults write com.apple.AppleMultitouchTrackpad Clicking -bool
+          true
+        desired_value: '1'
       - name: Enable tap to click (Bluetooth trackpad)
-        read_cmd: defaults read com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking
-        write_cmd: defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-        desired_value: "1"
+        read_cmd: defaults read com.apple.driver.AppleBluetoothMultitouch.trackpad
+          Clicking
+        write_cmd: defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad
+          Clicking -bool true
+        desired_value: '1'
       - name: Enable tap to click globally (current host)
         read_cmd: defaults -currentHost read NSGlobalDomain com.apple.mouse.tapBehavior
-        write_cmd: defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-        desired_value: "1"
+        write_cmd: defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior
+          -int 1
+        desired_value: '1'
       - name: Enable tap to click globally
         read_cmd: defaults read NSGlobalDomain com.apple.mouse.tapBehavior
-        write_cmd: defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-        desired_value: "1"
+        write_cmd: defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int
+          1
+        desired_value: '1'
       - name: Enable two-finger right click (Bluetooth trackpad)
-        read_cmd: defaults read com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick
-        write_cmd: defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-        desired_value: "1"
+        read_cmd: defaults read com.apple.driver.AppleBluetoothMultitouch.trackpad
+          TrackpadRightClick
+        write_cmd: defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad
+          TrackpadRightClick -bool true
+        desired_value: '1'
       - name: Enable two-finger right click (built-in trackpad)
         read_cmd: defaults read com.apple.AppleMultitouchTrackpad TrackpadRightClick
-        write_cmd: defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
-        desired_value: "1"
+        write_cmd: defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick
+          -bool true
+        desired_value: '1'
       - name: Disable corner secondary click
         read_cmd: defaults read com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick
-        write_cmd: defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 0
-        desired_value: "0"
+        write_cmd: defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick
+          -int 0
+        desired_value: '0'
       - name: Enable context menu gesture
         read_cmd: defaults read NSGlobalDomain ContextMenuGesture
         write_cmd: defaults write NSGlobalDomain ContextMenuGesture -int 1
-        desired_value: "1"
+        desired_value: '1'
       - name: Set dock minimize effect to scale
         read_cmd: defaults read com.apple.dock mineffect
         write_cmd: defaults write com.apple.dock mineffect -string scale
-        desired_value: "scale"
+        desired_value: scale
       - name: Enable dock auto-hide
         read_cmd: defaults read com.apple.dock autohide
         write_cmd: defaults write com.apple.dock autohide -bool true
-        desired_value: "1"
+        desired_value: '1'
       - name: Save screenshots to Downloads folder
         read_cmd: defaults read com.apple.screencapture location
         write_cmd: defaults write com.apple.screencapture location -string "$HOME/Downloads"
@@ -82,85 +96,93 @@
       - name: Save screenshots as PNG
         read_cmd: defaults read com.apple.screencapture type
         write_cmd: defaults write com.apple.screencapture type -string png
-        desired_value: "png"
+        desired_value: png
       - name: Set Finder new window target to Desktop
         read_cmd: defaults read com.apple.finder NewWindowTarget
         write_cmd: defaults write com.apple.finder NewWindowTarget -string PfDe
-        desired_value: "PfDe"
+        desired_value: PfDe
       - name: Set Finder new window target path to Desktop
         read_cmd: defaults read com.apple.finder NewWindowTargetPath
         write_cmd: defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/Desktop/"
-        desired_value: "file://{{ lookup('env', 'HOME') }}/Desktop/"
+        desired_value: file://{{ lookup('env', 'HOME') }}/Desktop/
       - name: Show Finder status bar
         read_cmd: defaults read com.apple.finder ShowStatusBar
         write_cmd: defaults write com.apple.finder ShowStatusBar -bool true
-        desired_value: "1"
+        desired_value: '1'
       - name: Allow text selection in Quick Look
         read_cmd: defaults read com.apple.finder QLEnableTextSelection
         write_cmd: defaults write com.apple.finder QLEnableTextSelection -bool true
-        desired_value: "1"
+        desired_value: '1'
       - name: Search current folder by default in Finder
         read_cmd: defaults read com.apple.finder FXDefaultSearchScope
-        write_cmd: defaults write com.apple.finder FXDefaultSearchScope -string SCcf
-        desired_value: "SCcf"
+        write_cmd: defaults write com.apple.finder FXDefaultSearchScope -string
+          SCcf
+        desired_value: SCcf
       - name: Disable extension change warning
         read_cmd: defaults read com.apple.finder FXEnableExtensionChangeWarning
-        write_cmd: defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-        desired_value: "0"
+        write_cmd: defaults write com.apple.finder FXEnableExtensionChangeWarning
+          -bool false
+        desired_value: '0'
       - name: Enable spring loading for directories
         read_cmd: defaults read NSGlobalDomain com.apple.springing.enabled
-        write_cmd: defaults write NSGlobalDomain com.apple.springing.enabled -bool true
-        desired_value: "1"
+        write_cmd: defaults write NSGlobalDomain com.apple.springing.enabled -bool
+          true
+        desired_value: '1'
       - name: Set spring loading delay for directories
         read_cmd: defaults read NSGlobalDomain com.apple.springing.delay
-        write_cmd: defaults write NSGlobalDomain com.apple.springing.delay -float 0.1
-        desired_value: "0.1"
+        write_cmd: defaults write NSGlobalDomain com.apple.springing.delay -float
+          0.1
+        desired_value: '0.1'
       - name: Avoid creating .DS_Store files on network volumes
         read_cmd: defaults read com.apple.desktopservices DSDontWriteNetworkStores
-        write_cmd: defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-        desired_value: "1"
+        write_cmd: defaults write com.apple.desktopservices DSDontWriteNetworkStores
+          -bool true
+        desired_value: '1'
       - name: Enable Safari Develop menu
         read_cmd: defaults read com.apple.Safari IncludeDevelopMenu
         write_cmd: defaults write com.apple.Safari IncludeDevelopMenu -bool true
-        desired_value: "1"
+        desired_value: '1'
         use_sudo: true
       - name: Enable Safari WebKit developer extras preference key
         read_cmd: defaults read com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey
-        write_cmd: defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-        desired_value: "1"
+        write_cmd: defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey
+          -bool true
+        desired_value: '1'
         use_sudo: true
       - name: Enable Safari WebKit2 developer extras
         read_cmd: defaults read com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
-        write_cmd: defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-        desired_value: "1"
+        write_cmd: defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
+          -bool true
+        desired_value: '1'
         use_sudo: true
       - name: Add Web Inspector to web view context menu
         read_cmd: defaults read NSGlobalDomain WebKitDeveloperExtras
         write_cmd: defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-        desired_value: "1"
+        desired_value: '1'
       - name: Disable automatic light/dark switching
         read_cmd: defaults read -g AppleInterfaceStyleSwitchesAutomatically
-        write_cmd: defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool false
-        desired_value: "0"
+        write_cmd: defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool
+          false
+        desired_value: '0'
       - name: Force persistent dark mode
         read_cmd: defaults read -g AppleInterfaceStyle
         write_cmd: defaults write -g AppleInterfaceStyle -string Dark
-        desired_value: "Dark"
+        desired_value: Dark
       - name: Show Activity Monitor main window on launch
         read_cmd: defaults read com.apple.ActivityMonitor OpenMainWindow
-        write_cmd: defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
-        desired_value: "1"
+        write_cmd: defaults write com.apple.ActivityMonitor OpenMainWindow -bool
+          true
+        desired_value: '1'
       - name: Show all processes in Activity Monitor
         read_cmd: defaults read com.apple.ActivityMonitor ShowCategory
         write_cmd: defaults write com.apple.ActivityMonitor ShowCategory -int 0
-        desired_value: "0"
+        desired_value: '0'
       - name: Disable App Store in-app rating requests
         read_cmd: defaults read com.apple.appstore InAppReviewEnabled
         write_cmd: defaults write com.apple.appstore InAppReviewEnabled -int 0
-        desired_value: "0"
-
+        desired_value: '0'
 - name: Apply macOS defaults only when current value differs.
-  become: "{{ item.use_sudo | default(false) | bool }}"
+  become: '{{ item.use_sudo | default(false) | bool }}'
   ansible.builtin.shell: |
     current="$({{ item.read_cmd }} 2>/dev/null || echo '<unset>')"
     if [ "$current" != "{{ item.desired_value }}" ]; then
@@ -179,15 +201,19 @@
     executable: /bin/bash
   register: macos_defaults_apply
   changed_when: "'changed' in macos_defaults_apply.stdout"
-  loop: "{{ macos_defaults_settings }}"
+  loop: '{{ macos_defaults_settings }}'
   loop_control:
-    label: "{{ item.name }}"
-
+    label: '{{ item.name }}'
 - name: Fail when any setting could not be written.
   ansible.builtin.fail:
-    msg: "One or more macOS settings could not be written or verified. Failed: {{ macos_defaults_apply.results | selectattr('stdout', 'search', 'write_failed') | map(attribute='item.name') | join(', ') }}"
-  when: (macos_defaults_apply.results | selectattr('stdout', 'search', 'write_failed') | list | length) > 0
-
+    msg: >-
+      One or more macOS settings could not be written or verified.
+      Failed: {{ macos_defaults_apply.results
+      | selectattr('stdout', 'search', 'write_failed')
+      | map(attribute='item.name')
+      | join(', ') }}
+  when: (macos_defaults_apply.results | selectattr('stdout', 'search', 'write_failed')
+    | list | length) > 0
 - name: Apply dark mode immediately via System Events (best effort).
   become: false
   ansible.builtin.shell: |
@@ -200,14 +226,13 @@
   register: macos_dark_mode_live_apply
   changed_when: "'changed' in macos_dark_mode_live_apply.stdout"
   failed_when: false
-
 - name: Note when changed settings may need restart/logout.
   ansible.builtin.debug:
-    msg: One or more macOS settings were changed. Some changes may require a logout or restart to fully take effect.
+    msg: One or more macOS settings were changed. Some changes may require a logout
+      or restart to fully take effect.
   when:
     - (macos_defaults_apply.results | selectattr('changed') | list | length) > 0
       or macos_dark_mode_live_apply.changed
-
 - name: Refresh macOS preference consumers when settings changed.
   become: false
   ansible.builtin.shell: |
@@ -216,4 +241,5 @@
     killall Finder || true
     killall SystemUIServer || true
   changed_when: false
-  when: (macos_defaults_apply.results | selectattr('changed') | list | length) > 0
+  when: (macos_defaults_apply.results | selectattr('changed') | list | length) >
+    0

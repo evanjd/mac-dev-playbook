@@ -1,22 +1,20 @@
 ---
 - name: Ensure Homebrew Git is installed and up to date.
   homebrew:
-    path: "{{ homebrew_brew_bin_path }}"
+    path: '{{ homebrew_brew_bin_path }}'
     name: git
-    state: latest
-
+    state: present
 - name: Ensure /usr/local/bin exists for Homebrew Git symlink.
   become: true
   file:
     path: /usr/local/bin
     state: directory
-    mode: "0755"
+    mode: '0755'
   when: homebrew_brew_bin_path != "/usr/local/bin"
-
 - name: Ensure Homebrew Git is preferred over the Xcode shim.
   become: true
   file:
-    src: "{{ homebrew_brew_bin_path }}/git"
+    src: '{{ homebrew_brew_bin_path }}/git'
     dest: /usr/local/bin/git
     state: link
     force: true

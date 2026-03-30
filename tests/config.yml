@@ -1,15 +1,6 @@
 ---
-homebrew_installed_packages:
-  - autoconf
-  - bash-completion
-  - gettext
-  - sqlite
-  - ssh-copy-id
-  - readline
-  - pv
-  - wget
-  - wrk
-
-homebrew_cask_apps:
-  - firefox
-  - licecap
+# Mac App Store installs require an authenticated session, which isn't
+# available in CI, causing the playbook to hang. Override to empty list
+# so the mas role is skipped entirely.
+mas_installed_apps: []
+mas_installed_app_ids: []

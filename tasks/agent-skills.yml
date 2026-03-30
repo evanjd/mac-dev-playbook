@@ -1,35 +1,31 @@
 ---
 # Installs agent-agnostic coding skills from a list maintained in dotfiles.
 # Skills are shared across Claude Code, Codex, Cursor, Copilot, etc.
-
 - name: Check for agent skills manifest in dotfiles.
   ansible.builtin.stat:
-    path: "{{ dotfiles_repo_local_destination }}/.config/skills/skills.yml"
+    path: '{{ dotfiles_repo_local_destination }}/.config/skills/skills.yml'
   register: skills_manifest
-
 - name: Install agent skills from dotfiles manifest.
   when: skills_manifest.stat.exists
   block:
     - name: Load agent skills manifest.
       ansible.builtin.include_vars:
-        file: "{{ dotfiles_repo_local_destination }}/.config/skills/skills.yml"
+        file: '{{ dotfiles_repo_local_destination }}/.config/skills/skills.yml'
         name: skills_config
-
     - name: Check which agent skills are already installed.
       ansible.builtin.command:
         cmd: npx --yes skills@latest list -g
       register: skills_list
       changed_when: false
-
     - name: Install agent skills.
       ansible.builtin.command:
         cmd: >-
           npx --yes skills@latest add {{ item.repo }} -g
           -y --agent claude-code codex github-copilot
           {% if item.skill is defined %}--skill {{ item.skill }}{% endif %}
-      loop: "{{ skills_config.agent_skills }}"
+      loop: '{{ skills_config.agent_skills }}'
       loop_control:
-        label: "{{ item.name }}"
+        label: '{{ item.name }}'
       when: item.name not in skills_list.stdout
       register: skill_install
       changed_when: skill_install.rc == 0

@@ -6,14 +6,12 @@
   changed_when: false
   failed_when: false
   check_mode: false
-
 - name: Ensure custom Terminal profile is added.
   copy:
     src: files/terminal/JJG-Term.terminal
     dest: /tmp/JJG-Term.terminal
   changed_when: false
   when: "'JJG-Term' not in terminal_theme.stdout"
-
 - name: Ensure custom Terminal profile is added.
   command: open /tmp/JJG-Term.terminal
   changed_when: false
@@ -21,7 +19,7 @@
 
 # TODO: This doesn't work in Yosemite. Consider a different solution?
 - name: Ensure custom Terminal profile is set as default.
-  command: "{{ item }}"
+  command: '{{ item }}'
   with_items:
     - defaults write com.apple.terminal 'Default Window Settings' -string JJG-Term
     - defaults write com.apple.terminal 'Startup Window Settings' -string JJG-Term
