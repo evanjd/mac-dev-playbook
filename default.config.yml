@@ -63,7 +63,7 @@ homebrew_installed_packages:
   - starship
   - thaw  # replacement for Ice, which itself is a replacement for Bartender
   - wget
-  - youtube-dl
+  - yt-dlp
 homebrew_taps: []
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
