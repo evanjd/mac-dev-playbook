@@ -10,10 +10,11 @@ Before starting, I completed Apple's mandatory macOS setup wizard (creating a lo
 
 - Install Ansible (following the guide in [README.md](README.md))
 - **Sign in to App Store** (since `mas` can't sign in automatically)
-- Clone mac-dev-playbook to the Mac: `git clone git@github.com:geerlingguy/mac-dev-playbook.git`
+- Clone mac-dev-playbook to the Mac: `git clone git@github.com:evanjd/mac-dev-playbook.git`
 - Drop `config.yml` from remote strage to the playbook (copy over the network or using a USB flash drive).
 - Run the playbook.
-  - If there are errors, you may need to finish up other tasks like installing 'old-fashioned' apps first. Then, run the playbook again ;)
+  - If there are errors, you may need to finish up other tasks like installing 'old-fashioned' apps first. Then, run the playbook again.
+  - `mas` may fail to install some apps with Python 3.9 (preinstalled on MacOS 26). Re-running the playbook with a more recent version of Python (already installed in the Homebrew step) should allow the setup to continue.
 - Start Synchronization tasks:
   - Open Photos and make sure iCloud sync options are correct
   - Open Music, make sure computer is authorized, and set Library sync options

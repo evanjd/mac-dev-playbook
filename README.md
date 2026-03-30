@@ -59,8 +59,6 @@ Finally, there are a few other preferences and settings added on for various app
 
 ## Full / From-scratch setup guide
 
-Since I've used this playbook to set up something like 20 different Macs, I decided to write up a full 100% from-scratch install for my own reference (everyone's particular install will be slightly different).
-
 You can see my full from-scratch setup document here: [full-mac-setup.md](full-mac-setup.md).
 
 ## Testing the Playbook
