@@ -82,6 +82,7 @@ homebrew_cask_apps:
   - stats
   - steam
   - sublime-text
+  - raycast
   - font-jetbrains-mono
   - transmit
   - visual-studio-code
