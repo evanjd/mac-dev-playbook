@@ -3,7 +3,7 @@ configure_dotfiles: true
 configure_terminal: false
 configure_osx: false  # handled in macos-settings post-provision task
 configure_dock: true
-dockitems_remove: [TV, Podcasts]
+dockitems_remove: [TV, Podcasts, Phone, FaceTime, Games, Contacts]
 dockitems_persist:
   - name: Chrome
     path: /Applications/Google Chrome.app/
