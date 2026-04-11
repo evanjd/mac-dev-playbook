@@ -72,7 +72,7 @@ homebrew_cask_apps:
   - calibre
   - chatgpt
   - claude
-  - claude-code
+#  - claude-code  # brew updates lag behind official releases resulting in persistent "upgrade available" in CLI, install via official installer instead
   - codex
   - fork
   - ghostty
@@ -86,6 +86,7 @@ homebrew_cask_apps:
   - font-jetbrains-mono
   - transmit
   - visual-studio-code
+  - xykong/tap/flux-markdown
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
 mas_installed_apps:
   - {id: 6745342698, name: uBlock Origin Lite}
